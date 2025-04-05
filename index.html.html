@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yottafruit - Portal Místico</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0d0d0d;
+      color: #f9f9f9;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2.5em;
+      color: orange;
+      text-shadow: 0 0 10px #ff8000;
+    }
+
+    p {
+      margin-top: 0;
+      font-size: 1.1em;
+      color: #ccc;
+    }
+
+    .fruit {
+      cursor: pointer;
+      margin-top: 30px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .fruit:hover {
+      transform: scale(1.1);
+    }
+
+    img {
+      width: 200px;
+      border-radius: 50%;
+      box-shadow: 0 0 30px orange;
+    }
+
+    .log {
+      margin-top: 30px;
+      background-color: #1a1a1a;
+      border: 1px solid #333;
+      padding: 15px;
+      width: 80%;
+      max-width: 500px;
+      font-size: 0.9em;
+      color: #a3ff8f;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #222;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Yottafruit 🍊</h1>
+  <p>Semilla Única. Portal del Equilibrio.</p>
+
+  <div class="fruit" onclick="activateSeed()">
+    <img src="fotos de yotta fruit.jpg" alt="Yottafruit" />
+  </div>
+
+  <div class="log" id="log">
+    Esperando activación...
+  </div>
+
+  <script>
+    function activateSeed() {
+      const log = document.getElementById("log");
+      const time = new Date().toLocaleTimeString();
+      const msg = `[${time}] 🌱 Semilla activada. Canalizando energía cósmica...`;
+      log.innerText = msg;
+      document.body.style.backgroundColor = "#120d08";
+      
+      // Crear archivo de registro
+      const blob = new Blob([msg + "\n"], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'activaciones_yottafruit.txt';
+      link.click();
+
+      setTimeout(() => {
+        log.innerText += "\n⚡ La conexión fue exitosa. La red de almas ha comenzado.";
+      }, 1500);
+    }
+  </script>
+</body>
+</html>
